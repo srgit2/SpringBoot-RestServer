@@ -1,6 +1,26 @@
-package server;
+package data;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.javafx.beans.IDProperty;
 
 public class User {
+
+    private int ID;
+
+    public User(@JsonProperty(value = "ID") int ID, @JsonProperty(value="Name") String name, @JsonProperty(value = "Email") String email) {
+        this.ID = ID;
+        this.name = name;
+        this.email = email;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     private String name;
     private String email;
 
@@ -25,11 +45,6 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public User(String name, String email) {
-        this.name = name;
         this.email = email;
     }
 }
